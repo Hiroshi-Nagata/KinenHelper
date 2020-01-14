@@ -5,4 +5,8 @@
     <string name="title_counter_fragment">喫煙カウンター</string>
     <string name="menu_item1">item1</string>
     <string name="menu_item2">item2</string>
+    <string name="text_message">あなたの決断を応援します！\nさぁ、一緒に禁煙しましょう！</string>
+    <string name="text_time_stop_smoking">タバコを止めた日時</string>
+    <string name="text_number_of_smoking_onDay">1日の喫煙本数</string>
+    <string name="text_number_of_cigarettes_in_box">1箱に入っている本数</string>
 </resources>
