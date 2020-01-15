@@ -9,4 +9,8 @@
     <string name="text_time_stop_smoking">タバコを止めた日時</string>
     <string name="text_number_of_smoking_onDay">1日の喫煙本数</string>
     <string name="text_number_of_cigarettes_in_box">1箱に入っている本数</string>
+    <string name="text_total_smoking_period">通算喫煙期間</string>
+    <string name="text_tar">タールの量</string>
+    <string name="text_iQS">(iQSは0.5mgを入力)</string>
+    <string name="text_nicotine">ニコチンの量</string>
 </resources>
