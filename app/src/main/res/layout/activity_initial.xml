@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.constraint.Guideline
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/vertical_guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             app:layout_constraintTop_toBottomOf="@id/button_time_stop_smoking"
             app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
             android:layout_marginTop="@dimen/margin_20dp"
-            android:layout_marginEnd="@dimen/margin_50dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
             android:text="@string/text_number_of_smoking_onDay" />
 
         <TextView
@@ -64,7 +64,7 @@
             app:layout_constraintTop_toBottomOf="@+id/text_number_of_smoking_onDay"
             app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
             android:layout_marginTop="@dimen/margin_10dp"
-            android:layout_marginEnd="@dimen/margin_50dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
             android:text="20"/>
 
         <TextView
@@ -74,7 +74,7 @@
             app:layout_constraintTop_toBottomOf="@+id/text_number_of_smoking"
             app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
             android:layout_marginTop="@dimen/margin_20dp"
-            android:layout_marginEnd="@dimen/margin_50dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
             android:text="@string/text_number_of_cigarettes_in_box"/>
 
         <TextView
@@ -84,7 +84,7 @@
             app:layout_constraintTop_toBottomOf="@+id/text_number_of_cigarettes_in_box"
             app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
             android:layout_marginTop="@dimen/margin_10dp"
-            android:layout_marginEnd="@dimen/margin_50dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
             android:text="20"/>
 
         <TextView
@@ -94,7 +94,7 @@
             app:layout_constraintTop_toBottomOf="@+id/text_number_of_cigarettes"
             app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
             android:layout_marginTop="@dimen/margin_20dp"
-            android:layout_marginEnd="@dimen/margin_50dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
             android:text="@string/text_total_smoking_period"/>
 
         <TextView
@@ -104,7 +104,7 @@
             app:layout_constraintTop_toBottomOf="@+id/text_total_smoking_period"
             app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
             android:layout_marginTop="@dimen/margin_10dp"
-            android:layout_marginEnd="@dimen/margin_50dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
             android:text="4年"/>
 
         <TextView
@@ -114,7 +114,7 @@
             app:layout_constraintTop_toBottomOf="@+id/text_number_of_total_smoking_period"
             app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
             android:layout_marginTop="@dimen/margin_20dp"
-            android:layout_marginEnd="@dimen/margin_50dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
             android:text="@string/text_tar"/>
 
         <TextView
@@ -124,7 +124,7 @@
             app:layout_constraintTop_toBottomOf="@+id/text_tar"
             app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
             android:layout_marginTop="@dimen/margin_0dp"
-            android:layout_marginEnd="@dimen/margin_50dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
             android:text="@string/text_iQS"/>
 
         <TextView
@@ -134,7 +134,7 @@
             app:layout_constraintTop_toBottomOf="@+id/text_iQS_with_tar"
             app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
             android:layout_marginTop="@dimen/margin_10dp"
-            android:layout_marginEnd="@dimen/margin_50dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
             android:text="0.5mg"/>
 
         <TextView
@@ -144,7 +144,7 @@
             app:layout_constraintTop_toBottomOf="@+id/text_number_of_tar"
             app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
             android:layout_marginTop="@dimen/margin_20dp"
-            android:layout_marginEnd="@dimen/margin_50dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
             android:text="@string/text_nicotine"/>
 
         <TextView
@@ -154,7 +154,7 @@
             app:layout_constraintTop_toBottomOf="@+id/text_nicotine"
             app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
             android:layout_marginTop="@dimen/margin_0dp"
-            android:layout_marginEnd="@dimen/margin_50dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
             android:text="@string/text_iQS"/>
 
         <TextView
@@ -164,7 +164,7 @@
             app:layout_constraintTop_toBottomOf="@+id/text_iQS_with_nicotine"
             app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
             android:layout_marginTop="@dimen/margin_10dp"
-            android:layout_marginEnd="@dimen/margin_50dp"
+            android:layout_marginEnd="@dimen/margin_20dp"
             android:text="0.5mg"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
