@@ -13,4 +13,7 @@
     <string name="text_tar">タールの量</string>
     <string name="text_iQS">(iQSは0.5mgを入力)</string>
     <string name="text_nicotine">ニコチンの量</string>
+    <string name="text_minus">-</string>
+    <string name="text_plus">+</string>
+    <string name="text_next">次へ進む</string>
 </resources>

@@ -10,6 +10,7 @@ import androidx.fragment.app.DialogFragment;
 import java.util.Calendar;
 
 public class DialogTimeFragment extends DialogFragment {
+
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Calendar calendar = Calendar.getInstance();
         TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(),
@@ -19,7 +20,7 @@ public class DialogTimeFragment extends DialogFragment {
                         String time = hour + "時" + minutes + "分";
                         DialogCalenderFragment dialogCalenderFragment = new DialogCalenderFragment();
 
-                        String dateTime = dialogCalenderFragment.getDate() + " " + time;
+                        String dateTime = dialogCalenderFragment.year + " " + time;
 
                         InitialActivity initialActivity = (InitialActivity) getActivity();
                         initialActivity.setTextOnButton(dateTime);

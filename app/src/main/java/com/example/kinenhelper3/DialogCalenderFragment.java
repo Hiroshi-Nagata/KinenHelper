@@ -13,11 +13,12 @@ import java.util.Calendar;
 
 public class DialogCalenderFragment extends DialogFragment {
 
-    private int year;
+    public int year;
     private int month;
     private int dayOfMonth;
-    private String date;
-
+    private String mTAGTime = "time";
+//    public String date = "";
+//    public StringBuilder stringBuilder = new StringBuilder();
     public Dialog onCreateDialog(Bundle savedInstanceState){
 
         final Calendar calendar = Calendar.getInstance();
@@ -25,10 +26,13 @@ public class DialogCalenderFragment extends DialogFragment {
                 new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                date = year + "年" + (month + 1) + "月" + dayOfMonth + "日";
+
+                String date = year + "年" + (month + 1) + "月" + dayOfMonth + "日";
+                get(date);
+//                stringBuilder.append(date);
                 DialogTimeFragment dialogTimeFragment = new DialogTimeFragment();
-                dialogTimeFragment.show(getFragmentManager(),"tagTime");
-                setDate(date);
+
+                dialogTimeFragment.show(getFragmentManager(),mTAGTime);
 
 //                InitialActivity initialActivity = (InitialActivity) getActivity();
 //                initialActivity.setTextOnButton(date);
@@ -41,12 +45,13 @@ public class DialogCalenderFragment extends DialogFragment {
         return datePickerDialog;
     }
 
-    public String getDate() {
+
+
+    public String get(String date) {
         return date;
     }
 
-    private void setDate(String date) {
-        this.date = date;
+    public void set() {
     }
 
 }

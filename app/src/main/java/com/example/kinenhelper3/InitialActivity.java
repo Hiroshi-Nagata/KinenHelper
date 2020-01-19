@@ -11,6 +11,8 @@ import java.util.Date;
 
 public class InitialActivity extends AppCompatActivity {
 
+    private String mTAGDate = "date";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +27,7 @@ public class InitialActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DialogCalenderFragment dialogCalenderFragment = new DialogCalenderFragment();
-                dialogCalenderFragment.show(getSupportFragmentManager(), "tagCalender");
+                dialogCalenderFragment.show(getSupportFragmentManager(), mTAGDate);
             }
         });
     }
