@@ -30,6 +30,7 @@ public class InitialActivity extends AppCompatActivity {
                 dialogCalenderFragment.show(getSupportFragmentManager(), mTAGDate);
             }
         });
+
     }
 
     public void setTextOnButton(String date) {

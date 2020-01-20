@@ -13,12 +13,8 @@ import java.util.Calendar;
 
 public class DialogCalenderFragment extends DialogFragment {
 
-    public int year;
-    private int month;
-    private int dayOfMonth;
     private String mTAGTime = "time";
-//    public String date = "";
-//    public StringBuilder stringBuilder = new StringBuilder();
+
     public Dialog onCreateDialog(Bundle savedInstanceState){
 
         final Calendar calendar = Calendar.getInstance();
@@ -28,14 +24,8 @@ public class DialogCalenderFragment extends DialogFragment {
             public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
 
                 String date = year + "年" + (month + 1) + "月" + dayOfMonth + "日";
-                get(date);
-//                stringBuilder.append(date);
-                DialogTimeFragment dialogTimeFragment = new DialogTimeFragment();
-
+                DialogTimeFragment dialogTimeFragment = new DialogTimeFragment(date);
                 dialogTimeFragment.show(getFragmentManager(),mTAGTime);
-
-//                InitialActivity initialActivity = (InitialActivity) getActivity();
-//                initialActivity.setTextOnButton(date);
             }
         },
         calendar.get(Calendar.YEAR),
@@ -44,14 +34,4 @@ public class DialogCalenderFragment extends DialogFragment {
 
         return datePickerDialog;
     }
-
-
-
-    public String get(String date) {
-        return date;
-    }
-
-    public void set() {
-    }
-
 }

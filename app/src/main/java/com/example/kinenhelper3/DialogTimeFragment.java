@@ -11,6 +11,11 @@ import java.util.Calendar;
 
 public class DialogTimeFragment extends DialogFragment {
 
+    private String date;
+    DialogTimeFragment(String calenderDate) {
+        date = calenderDate;
+    }
+
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Calendar calendar = Calendar.getInstance();
         TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(),
@@ -18,9 +23,7 @@ public class DialogTimeFragment extends DialogFragment {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hour, int minutes) {
                         String time = hour + "時" + minutes + "分";
-                        DialogCalenderFragment dialogCalenderFragment = new DialogCalenderFragment();
-
-                        String dateTime = dialogCalenderFragment.year + " " + time;
+                        String dateTime = date + " " + time;
 
                         InitialActivity initialActivity = (InitialActivity) getActivity();
                         initialActivity.setTextOnButton(dateTime);
