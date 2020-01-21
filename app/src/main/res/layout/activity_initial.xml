@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".InitialActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/vertical_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
     <TextView
         android:id="@+id/text_message"
         android:layout_width="wrap_content"
@@ -43,235 +36,256 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_time_stop_smoking" />
 
-    <TextView
-        android:id="@+id/text_number_of_smoking_onDay"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_20dp"
-        android:layout_marginEnd="@dimen/dimen_20dp"
-        android:text="@string/text_number_of_smoking_onDay"
-        app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/button_time_stop_smoking" />
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/button_time_stop_smoking">
 
-    <Button
-        android:id="@+id/button_minus_number_of_smoking_onDay"
-        android:layout_width="@dimen/dimen_50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_20dp"
-        android:text="@string/text_minus"
-        android:textSize="@dimen/dimen_20dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toTopOf="@+id/text_number_of_smoking_onDay" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0dp">
 
-    <Button
-        android:id="@+id/button_plus_number_of_smoking_onDay"
-        android:layout_width="@dimen/dimen_50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_20dp"
-        android:text="@string/text_plus"
-        android:textSize="@dimen/dimen_20dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@+id/button_minus_number_of_smoking_onDay"
-        app:layout_constraintTop_toTopOf="@+id/text_number_of_smoking_onDay" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/vertical_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
 
-    <TextView
-        android:id="@+id/text_number_of_smoking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_4dp"
-        android:layout_marginEnd="@dimen/dimen_20dp"
-        android:text="20"
-        app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/text_number_of_smoking_onDay" />
+            <TextView
+                android:id="@+id/text_number_of_smoking_onDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:text="@string/text_number_of_smoking_onDay"
+                app:layout_constraintBottom_toTopOf="@+id/text_number_of_smoking"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline" />
 
-    <TextView
-        android:id="@+id/text_number_of_cigarettes_in_box"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_20dp"
-        android:layout_marginEnd="@dimen/dimen_20dp"
-        android:text="@string/text_number_of_cigarettes_in_box"
-        app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/text_number_of_smoking" />
+            <Button
+                android:id="@+id/button_minus_number_of_smoking_onDay"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:text="@string/text_minus"
+                android:textSize="@dimen/dimen_20dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toTopOf="@+id/text_number_of_smoking_onDay" />
 
-    <TextView
-        android:id="@+id/text_number_of_cigarettes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_4dp"
-        android:layout_marginEnd="@dimen/dimen_20dp"
-        android:text="20"
-        app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/text_number_of_cigarettes_in_box" />
+            <Button
+                android:id="@+id/button_plus_number_of_smoking_onDay"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:text="@string/text_plus"
+                android:textSize="@dimen/dimen_20dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@+id/button_minus_number_of_smoking_onDay"
+                app:layout_constraintTop_toTopOf="@+id/text_number_of_smoking_onDay" />
 
-    <Button
-        android:id="@+id/button_minus_number_of_cigarettes_in_box"
-        android:layout_width="@dimen/dimen_50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_20dp"
-        android:text="@string/text_minus"
-        android:textSize="@dimen/dimen_20dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toTopOf="@+id/text_number_of_cigarettes_in_box" />
+            <TextView
+                android:id="@+id/text_number_of_smoking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_4dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:text="20"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_number_of_smoking_onDay" />
 
-    <Button
-        android:id="@+id/button_plus_number_of_cigarettes_in_box"
-        android:layout_width="@dimen/dimen_50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_20dp"
-        android:text="@string/text_plus"
-        android:textSize="@dimen/dimen_20dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@+id/button_minus_number_of_cigarettes_in_box"
-        app:layout_constraintTop_toTopOf="@+id/text_number_of_cigarettes_in_box" />
+            <TextView
+                android:id="@+id/text_number_of_cigarettes_in_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:text="@string/text_number_of_cigarettes_in_box"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_number_of_smoking" />
 
-    <TextView
-        android:id="@+id/text_total_smoking_period"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_20dp"
-        android:layout_marginEnd="@dimen/dimen_20dp"
-        android:text="@string/text_total_smoking_period"
-        app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/text_number_of_cigarettes" />
+            <TextView
+                android:id="@+id/text_number_of_cigarettes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_4dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:text="20"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_number_of_cigarettes_in_box" />
 
-    <TextView
-        android:id="@+id/text_number_of_total_smoking_period"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_4dp"
-        android:layout_marginEnd="@dimen/dimen_20dp"
-        android:text="4年"
-        app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/text_total_smoking_period" />
+            <Button
+                android:id="@+id/button_minus_number_of_cigarettes_in_box"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:text="@string/text_minus"
+                android:textSize="@dimen/dimen_20dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toTopOf="@+id/text_number_of_cigarettes_in_box" />
 
-    <Button
-        android:id="@+id/button_minus_total_smoking_period"
-        android:layout_width="@dimen/dimen_50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_20dp"
-        android:text="@string/text_minus"
-        android:textSize="@dimen/dimen_20dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toTopOf="@+id/text_total_smoking_period" />
+            <Button
+                android:id="@+id/button_plus_number_of_cigarettes_in_box"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:text="@string/text_plus"
+                android:textSize="@dimen/dimen_20dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@+id/button_minus_number_of_cigarettes_in_box"
+                app:layout_constraintTop_toTopOf="@+id/text_number_of_cigarettes_in_box" />
 
-    <Button
-        android:id="@+id/button_plus_total_smoking_period"
-        android:layout_width="@dimen/dimen_50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_20dp"
-        android:text="@string/text_plus"
-        android:textSize="@dimen/dimen_20dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@+id/button_minus_total_smoking_period"
-        app:layout_constraintTop_toTopOf="@+id/text_total_smoking_period" />
+            <TextView
+                android:id="@+id/text_total_smoking_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:text="@string/text_total_smoking_period"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_number_of_cigarettes" />
 
-    <TextView
-        android:id="@+id/text_tar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_20dp"
-        android:layout_marginEnd="@dimen/dimen_20dp"
-        android:text="@string/text_tar"
-        app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/text_number_of_total_smoking_period" />
+            <TextView
+                android:id="@+id/text_number_of_total_smoking_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_4dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:text="10"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_total_smoking_period" />
 
-    <TextView
-        android:id="@+id/text_iQS_with_tar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_0dp"
-        android:layout_marginEnd="@dimen/dimen_20dp"
-        android:text="@string/text_iQS"
-        app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/text_tar" />
+            <Button
+                android:id="@+id/button_minus_total_smoking_period"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:text="@string/text_minus"
+                android:textSize="@dimen/dimen_20dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toTopOf="@+id/text_total_smoking_period" />
 
-    <TextView
-        android:id="@+id/text_number_of_tar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_4dp"
-        android:layout_marginEnd="@dimen/dimen_20dp"
-        android:text="0.5mg"
-        app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/text_iQS_with_tar" />
+            <Button
+                android:id="@+id/button_plus_total_smoking_period"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:text="@string/text_plus"
+                android:textSize="@dimen/dimen_20dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@+id/button_minus_total_smoking_period"
+                app:layout_constraintTop_toTopOf="@+id/text_total_smoking_period" />
 
-    <Button
-        android:id="@+id/button_minus_tar"
-        android:layout_width="@dimen/dimen_50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_20dp"
-        android:text="@string/text_minus"
-        android:textSize="@dimen/dimen_20dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toTopOf="@+id/text_tar" />
+            <TextView
+                android:id="@+id/text_tar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:text="@string/text_tar"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_number_of_total_smoking_period" />
 
-    <Button
-        android:id="@+id/button_plus_tar"
-        android:layout_width="@dimen/dimen_50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_20dp"
-        android:text="@string/text_plus"
-        android:textSize="@dimen/dimen_20dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@+id/button_minus_tar"
-        app:layout_constraintTop_toTopOf="@+id/text_tar" />
+            <TextView
+                android:id="@+id/text_iQS_with_tar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_0dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:text="@string/text_iQS"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_tar" />
 
-    <TextView
-        android:id="@+id/text_nicotine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_20dp"
-        android:layout_marginEnd="@dimen/dimen_20dp"
-        android:text="@string/text_nicotine"
-        app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/text_number_of_tar" />
+            <TextView
+                android:id="@+id/text_number_of_tar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_4dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:text="10mg"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_iQS_with_tar" />
 
-    <TextView
-        android:id="@+id/text_iQS_with_nicotine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_0dp"
-        android:layout_marginEnd="@dimen/dimen_20dp"
-        android:text="@string/text_iQS"
-        app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/text_nicotine" />
+            <Button
+                android:id="@+id/button_minus_tar"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:text="@string/text_minus"
+                android:textSize="@dimen/dimen_20dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toTopOf="@+id/text_tar" />
 
-    <TextView
-        android:id="@+id/number_of_nicotine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_4dp"
-        android:layout_marginEnd="@dimen/dimen_20dp"
-        android:text="0.5mg"
-        app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/text_iQS_with_nicotine" />
+            <Button
+                android:id="@+id/button_plus_tar"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:text="@string/text_plus"
+                android:textSize="@dimen/dimen_20dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@+id/button_minus_tar"
+                app:layout_constraintTop_toTopOf="@+id/text_tar" />
 
-    <Button
-        android:id="@+id/button_minus_nicotine"
-        android:layout_width="@dimen/dimen_50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_20dp"
-        android:text="@string/text_minus"
-        android:textSize="@dimen/dimen_20dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toTopOf="@+id/text_nicotine" />
+            <TextView
+                android:id="@+id/text_nicotine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:text="@string/text_nicotine"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_number_of_tar" />
 
-    <Button
-        android:id="@+id/button_plus_nicotine"
-        android:layout_width="@dimen/dimen_50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_20dp"
-        android:text="@string/text_plus"
-        android:textSize="@dimen/dimen_20dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@+id/button_minus_nicotine"
-        app:layout_constraintTop_toTopOf="@+id/text_nicotine" />
+            <TextView
+                android:id="@+id/text_iQS_with_nicotine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_0dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:text="@string/text_iQS"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_nicotine" />
+
+            <TextView
+                android:id="@+id/text_number_of_nicotine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_4dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:text="0.5mg"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_iQS_with_nicotine" />
+
+            <Button
+                android:id="@+id/button_minus_nicotine"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:text="@string/text_minus"
+                android:textSize="@dimen/dimen_20dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toTopOf="@+id/text_nicotine" />
+
+            <Button
+                android:id="@+id/button_plus_nicotine"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:text="@string/text_plus"
+                android:textSize="@dimen/dimen_20dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@+id/button_minus_nicotine"
+                app:layout_constraintTop_toTopOf="@+id/text_nicotine" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
     <Button
         android:id="@+id/button_next_for_initial"
