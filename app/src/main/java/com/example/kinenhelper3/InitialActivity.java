@@ -1,5 +1,6 @@
 package com.example.kinenhelper3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,16 +20,16 @@ public class InitialActivity extends AppCompatActivity {
     private final int MAXIMUM_NUMBER_OF_CIGARETTES = 20;
     private final int MINIMUM_NUMBER_OF_TOTAL_SMOKING_PERIOD = 1;
     private final int MAXIMUM_NUMBER_OF_TOTAL_SMOKING_PERIOD = 100;
-    private final double MINIMUM_NUMBER_OF_TAR = 0.5;
-    private final int MAXIMUM_NUMBER_OF_TAR = 30;
-    private final int MINIMUM_NUMBER_OF_NICOTINE = 0;
-    private final double MAXIMUM_NUMBER_OF_NICOTINE = 2.5;
+    private final float MINIMUM_NUMBER_OF_TAR = 0.5f;
+    private final float MAXIMUM_NUMBER_OF_TAR = 30.0f;
+    private final float MINIMUM_NUMBER_OF_NICOTINE = 0.1f;
+    private final float MAXIMUM_NUMBER_OF_NICOTINE = 2.5f;
 
     private int mNumberOfSmoking = 20;
     private int mNumberOfCigarettes = 20;
     private int mNumberOfTotalSmokingPeriod = 10;
-    private int mNumberOfTar = 10;
-    private double mNumberOfNicotine = 0.5;
+    private float mNumberOfTar = 10.0f;
+    private float mNumberOfNicotine = 0.5f;
     private TextView mTextNumberOfSmoking;
     private TextView mTextNumberOfCigarettes;
     private TextView mTextNumberOfTotalSmokingPeriod;
@@ -43,7 +44,8 @@ public class InitialActivity extends AppCompatActivity {
     private Button mButtonMinusTar;
     private Button mButtonPlusTar;
     private Button mButtonMinusNicotine;
-    private Button mbuttonPlusNicotine;
+    private Button mButtonPlusNicotine;
+    private Button mButtonNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,10 +95,20 @@ public class InitialActivity extends AppCompatActivity {
 
         //ニコチンの量
         mButtonMinusNicotine = findViewById(R.id.button_minus_nicotine);
-        mbuttonPlusNicotine = findViewById(R.id.button_plus_nicotine);
+        mButtonPlusNicotine = findViewById(R.id.button_plus_nicotine);
         mTextNumberOfNicotine = findViewById(R.id.text_number_of_nicotine);
+        mButtonMinusNicotine.setOnClickListener(minusCountNumberOfNicotineClickListener);
+        mButtonPlusNicotine.setOnClickListener(plusCountNumberOfNicotineClickListener);
 
-
+        //次に進む
+        mButtonNext = findViewById(R.id.button_next_for_initial);
+        mButtonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void setTextOnButton(String date) {
@@ -182,7 +194,7 @@ public class InitialActivity extends AppCompatActivity {
             if (mNumberOfTar > 1) {
                 mNumberOfTar--;
             } else {
-                (double)mNumberOfTar = MINIMUM_NUMBER_OF_TAR;
+                mNumberOfTar = MINIMUM_NUMBER_OF_TAR;
             }
             String tarWithUnit = mNumberOfTar + getString(R.string.text_mg);
             mTextNumberOfTar.setText(tarWithUnit);
@@ -192,7 +204,9 @@ public class InitialActivity extends AppCompatActivity {
     private View.OnClickListener plusCountNumberOfTarClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            if (mNumberOfTar < MAXIMUM_NUMBER_OF_TAR) {
+            if (mNumberOfTar == MINIMUM_NUMBER_OF_TAR) {
+                mNumberOfTar += 0.5;
+            } else if (mNumberOfTar < MAXIMUM_NUMBER_OF_TAR) {
                 mNumberOfTar++;
             } else {
                 mNumberOfTar = MAXIMUM_NUMBER_OF_TAR;
@@ -205,26 +219,26 @@ public class InitialActivity extends AppCompatActivity {
     private View.OnClickListener minusCountNumberOfNicotineClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            if (mNumberOfNicotine > 1) {
-                mNumberOfNicotine--;
+            if (mNumberOfNicotine > MINIMUM_NUMBER_OF_NICOTINE + 0.01) {
+                mNumberOfNicotine -= 0.1;
             } else {
-                mNumberOfNicotine = (int)MINIMUM_NUMBER_OF_TAR;
+                mNumberOfNicotine = MINIMUM_NUMBER_OF_NICOTINE;
             }
-            String tarWithUnit = mNumberOfTar + getString(R.string.text_mg);
-            mTextNumberOfTar.setText(tarWithUnit);
+            String tarWithUnit = String.format("%.1f", mNumberOfNicotine) + getString(R.string.text_mg);
+            mTextNumberOfNicotine.setText(tarWithUnit);
         }
     };
 
     private View.OnClickListener plusCountNumberOfNicotineClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            if (mNumberOfTar < MAXIMUM_NUMBER_OF_TAR) {
-                mNumberOfTar++;
+            if (mNumberOfNicotine < MAXIMUM_NUMBER_OF_NICOTINE - 0.01) {
+                mNumberOfNicotine += 0.1;
             } else {
-                mNumberOfTar = MAXIMUM_NUMBER_OF_TAR;
+                mNumberOfNicotine = MAXIMUM_NUMBER_OF_NICOTINE;
             }
-            String tarWithUnit = mNumberOfTar + getString(R.string.text_mg);
-            mTextNumberOfTar.setText(tarWithUnit);
+            String tarWithUnit = String.format("%.1f", mNumberOfNicotine) + getString(R.string.text_mg);
+            mTextNumberOfNicotine.setText(tarWithUnit);
         }
     };
 

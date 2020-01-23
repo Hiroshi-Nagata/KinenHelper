@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KinenHelper2</string>
+    <string name="app_name">禁煙ヘルパー</string>
     <string name="title_progress_fragment">達成状況</string>
     <string name="title_graph_fragment">禁煙グラフ</string>
     <string name="title_counter_fragment">喫煙カウンター</string>
