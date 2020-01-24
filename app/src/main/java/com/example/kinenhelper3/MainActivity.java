@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,6 +12,10 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+
+import io.realm.Realm;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,6 +55,14 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
+
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<InitialData> realmQuery = realm.where(InitialData.class);
+        RealmResults<InitialData> realmResults = realmQuery.findAll();
+
+//        int bbb = realmResults.get(0).getSmokingNum();
+//        TextView textView = findViewById(R.id.aaa);
+//        textView.setText(bbb);
     }
 
     @Override
@@ -70,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    //aaaaaaaa
+//    private int getInitialDate() {
+//        InitialData initialData = new InitialData();
+//
+//        initialData.getSmokingNum();
+//    }
 }

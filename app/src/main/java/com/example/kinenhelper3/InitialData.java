@@ -3,16 +3,15 @@ package com.example.kinenhelper3;
 import java.util.Date;
 
 import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
 
 public class InitialData extends RealmObject {
-//    @PrimaryKey
+    //    @PrimaryKey
     private Date quitSmokingDay;
     private int smokingNum;
     private int numberInBox;
     private int totalSmokingPeriod;
-    private int nicotine;
-    private int tar;
+    private float nicotine;
+    private float tar;
 
 //    public Date getQuitSmokingDay() {
 //        return quitSmokingDay;
@@ -46,19 +45,19 @@ public class InitialData extends RealmObject {
         this.totalSmokingPeriod = totalSmokingPeriod;
     }
 
-    public int getNicotine() {
+    public float getNicotine() {
         return nicotine;
     }
 
-    public void setNicotine(int nicotine) {
+    public void setNicotine(float nicotine) {
         this.nicotine = nicotine;
     }
 
-    public int getTar() {
+    public float getTar() {
         return tar;
     }
 
-    public void setTar(int tar) {
+    public void setTar(float tar) {
         this.tar = tar;
     }
 }

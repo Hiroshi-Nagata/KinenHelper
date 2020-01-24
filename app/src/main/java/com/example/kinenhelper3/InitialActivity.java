@@ -8,8 +8,13 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import io.realm.Realm;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 
 public class InitialActivity extends AppCompatActivity {
 
@@ -99,6 +104,8 @@ public class InitialActivity extends AppCompatActivity {
         mTextNumberOfNicotine = findViewById(R.id.text_number_of_nicotine);
         mButtonMinusNicotine.setOnClickListener(minusCountNumberOfNicotineClickListener);
         mButtonPlusNicotine.setOnClickListener(plusCountNumberOfNicotineClickListener);
+
+        setInitialData();
 
         //次に進む
         mButtonNext = findViewById(R.id.button_next_for_initial);
@@ -242,11 +249,18 @@ public class InitialActivity extends AppCompatActivity {
         }
     };
 
+    private void setInitialData() {
+        Realm.init(this);
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        InitialData initialData = realm.createObject(InitialData.class);
 
-//    InitialData initialData = new InitialData();
-//
-//        initialData.setNicotine(5);
-//        initialData.setNumberInBox(20);
-//        initialData.setTar(4);
-//        initialData.setTotalSmokingPeriod(40);
+        initialData.setSmokingNum(mNumberOfSmoking);
+        initialData.setNumberInBox(mNumberOfCigarettes);
+        initialData.setTotalSmokingPeriod(mNumberOfTotalSmokingPeriod);
+        initialData.setTar(mNumberOfTar);
+        initialData.setNicotine(mNumberOfNicotine);
+
+        realm.commitTransaction();
+    }
 }
