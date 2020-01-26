@@ -22,4 +22,12 @@
     <string name="text_cheering_message2">死ぬ気で、全力で、タバコのことを、考え抜け！</string>
     <string name="text_cheering_message3">タバコを吸うメリットある？</string>
     <string name="text_cheering_message4">あと一日、あと一日でいいんだ。がんばれ。</string>
+    <string name="text_non_smoking_period">禁煙継続期間</string>
+    <string name="text_save_money">節約できた金額</string>
+    <string name="text_extend_life">伸びた寿命</string>
+    <string name="text_non_smoking_number">吸わなかった本数</string>
+    <string name="text_smoking_until_now">今まで喫煙してきた期間で・・・</string>
+    <string name="text_cumulative_number_of_smoking">累積喫煙本数</string>
+    <string name="text_lost_money">失った金額</string>
+    <string name="text_lost_life">失った寿命</string>
 </resources>

@@ -37,9 +37,9 @@
                 android:layout_height="wrap_content"
                 android:text="1日"
                 android:textSize="@dimen/dimen_20dp"
-                app:layout_constraintTop_toBottomOf="@+id/text_smoking_cessation_goal"
                 app:layout_constraintLeft_toLeftOf="@+id/text_smoking_cessation_goal"
-                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"/>
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_smoking_cessation_goal" />
 
             <Button
                 android:id="@+id/button_set_target"
@@ -47,27 +47,176 @@
                 android:layout_height="wrap_content"
                 android:text="@string/text_set_target"
                 android:textSize="@dimen/dimen_10dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/view_image_progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="@dimen/dimen_100dp"
+                android:layout_height="@dimen/dimen_100dp"
+                android:background="@color/colorPrimaryDark"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_cheering_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/text_cheering_message1"
-                app:layout_constraintTop_toBottomOf="@+id/view_image_progress"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_image_progress" />
+
+            <TextView
+                android:id="@+id/text_time_non_smoking_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1日11時間11分"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_cheering_message" />
+
+            <TextView
+                android:id="@+id/text_non_smoking_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_non_smoking_period"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_time_non_smoking_period" />
+
+            <TextView
+                android:id="@+id/text_count_save_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="99999円"
+                app:layout_constraintLeft_toLeftOf="@+id/vertical_guideline"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_cheering_message" />
+
+            <TextView
+                android:id="@+id/text_save_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_save_money"
+                app:layout_constraintLeft_toLeftOf="@+id/vertical_guideline"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_count_save_money" />
+
+            <Button
+                android:id="@+id/button_reset_non_smoking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_time_non_smoking_period" />
+
+            <TextView
+                android:id="@+id/text_time_extend_life"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:text="1日23時間45分"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_non_smoking_period" />
+
+            <TextView
+                android:id="@+id/text_extend_life"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_extend_life"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_time_extend_life" />
+
+            <TextView
+                android:id="@+id/text_count_non_smoking_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:text="36.9"
+                app:layout_constraintLeft_toLeftOf="@+id/vertical_guideline"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_save_money" />
+
+            <TextView
+                android:id="@+id/text_non_smoking_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_non_smoking_number"
+                app:layout_constraintLeft_toLeftOf="@+id/vertical_guideline"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_count_non_smoking_number" />
+
+            <TextView
+                android:id="@+id/text_smoking_until_now"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_50dp"
+                android:layout_marginTop="@dimen/dimen_50dp"
+                android:text="@string/text_smoking_until_now"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_extend_life" />
+
+            <TextView
+                android:id="@+id/text_cumulative_number_of_smoking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:text="@string/text_cumulative_number_of_smoking"
+                app:layout_constraintRight_toLeftOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_smoking_until_now" />
+
+            <TextView
+                android:id="@+id/text_count_cumulative_number_of_smoking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:text="12345本"
+                app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_smoking_until_now" />
+
+            <TextView
+                android:id="@+id/text_count_lost_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:text="67890円"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_cumulative_number_of_smoking" />
+
+            <TextView
+                android:id="@+id/text_lost_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_lost_money"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/vertical_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/text_count_lost_money" />
+
+            <TextView
+                android:id="@+id/text_count_lost_life"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:text="5年1ヶ月5日"
+                app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_count_cumulative_number_of_smoking" />
+
+            <TextView
+                android:id="@+id/text_lost_life"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_lost_life"
+                app:layout_constraintLeft_toRightOf="@+id/vertical_guideline"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_count_lost_life" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
