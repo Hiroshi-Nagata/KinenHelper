@@ -13,13 +13,13 @@ public class InitialData extends RealmObject {
     private float nicotine;
     private float tar;
 
-//    public Date getQuitSmokingDay() {
-//        return quitSmokingDay;
-//    }
-//
-//    public void setQuitSmokingDay(java.util.Date quitSmokingDay) {
-//        this.quitSmokingDay = quitSmokingDay;
-//    }
+    public Date getQuitSmokingDay() {
+        return quitSmokingDay;
+    }
+
+    public void setQuitSmokingDay(java.util.Date quitSmokingDay) {
+        this.quitSmokingDay = quitSmokingDay;
+    }
 
     public int getSmokingNum() {
         return smokingNum;

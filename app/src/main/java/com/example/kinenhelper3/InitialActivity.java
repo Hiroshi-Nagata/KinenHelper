@@ -8,13 +8,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import io.realm.Realm;
-import io.realm.RealmQuery;
-import io.realm.RealmResults;
+import io.realm.RealmConfiguration;
 
 public class InitialActivity extends AppCompatActivity {
 
@@ -30,7 +28,7 @@ public class InitialActivity extends AppCompatActivity {
     private final float MINIMUM_NUMBER_OF_NICOTINE = 0.1f;
     private final float MAXIMUM_NUMBER_OF_NICOTINE = 2.5f;
 
-    private int mNumberOfSmoking = 20;
+    private int mNumberOfSmoking;
     private int mNumberOfCigarettes = 20;
     private int mNumberOfTotalSmokingPeriod = 10;
     private float mNumberOfTar = 10.0f;
@@ -57,6 +55,9 @@ public class InitialActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial);
 
+        Realm.init(this);
+        RealmConfiguration config = new RealmConfiguration.Builder().build();
+        Realm.setDefaultConfiguration(config);
         Button dateText = findViewById(R.id.button_time_stop_smoking);
         Date currentTime = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy'年'MM'月'dd'日'　H'時'mm'分'");
@@ -105,14 +106,13 @@ public class InitialActivity extends AppCompatActivity {
         mButtonMinusNicotine.setOnClickListener(minusCountNumberOfNicotineClickListener);
         mButtonPlusNicotine.setOnClickListener(plusCountNumberOfNicotineClickListener);
 
-        setInitialData();
-
         //次に進む
         mButtonNext = findViewById(R.id.button_next_for_initial);
         mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                setUpdateData();
                 startActivity(intent);
             }
         });
@@ -249,8 +249,7 @@ public class InitialActivity extends AppCompatActivity {
         }
     };
 
-    private void setInitialData() {
-        Realm.init(this);
+    private void setUpdateData() {
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         InitialData initialData = realm.createObject(InitialData.class);
