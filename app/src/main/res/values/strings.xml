@@ -16,7 +16,8 @@
     <string name="text_minus">-</string>
     <string name="text_plus">+</string>
     <string name="text_next">次へ進む</string>
-    <string name="text_mg">mg</string>
+    <string name="text_unit_mg">mg</string>
+    <string name="text_unit_number">本</string>
     <string name="text_set_target">目標設定</string>
     <string name="text_cheering_message1">一口だけ吸う愚か者</string>
     <string name="text_cheering_message2">死ぬ気で、全力で、タバコのことを、考え抜け！</string>

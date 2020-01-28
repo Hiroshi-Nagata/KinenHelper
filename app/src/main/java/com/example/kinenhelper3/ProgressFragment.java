@@ -23,24 +23,37 @@ public class ProgressFragment extends Fragment {
     //秒数を保管するオブジェクト
     private Time mTime;
 
-    private TextView mTextView;
+    private Realm mRealm;
+    private RealmQuery<InitialData> mRealmQuery;
+    private RealmResults<InitialData> mRealmResults;
+    private InitialData mInitialData;
+
+    private int mNumberOfSmokingOnDay;
+    private int mTotalSmokingPeriod;
+    private TextView mTextTimeNonSmokingPeriod;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_progress, container, false);
-
-        Realm realm = Realm.getDefaultInstance();
-        RealmQuery<InitialData> realmQuery = realm.where(InitialData.class);
-        RealmResults<InitialData> realmResults = realmQuery.findAll();
-
-        int bbb = realmResults.get(35).getSmokingNum();
-        mTextView = view.findViewById(R.id.text_time_non_smoking_period);
-        mTextView.setText(bbb);
-
-//        TextView textView = view.findViewById(R.id.text_cheering_message);
+        setCumulativeNumberOfSmoking(view);
         return view;
+    }
+
+    private void setRealm() {
+        mRealm = Realm.getDefaultInstance();
+        mRealmQuery = mRealm.where(InitialData.class);
+        mRealmResults = mRealmQuery.findAll();
+    }
+
+    private void setCumulativeNumberOfSmoking(View view) {
+        setRealm();
+        mInitialData = mRealmResults.get(0);
+        mNumberOfSmokingOnDay = mInitialData.getSmokingNum();
+        mTotalSmokingPeriod = mInitialData.getTotalSmokingPeriod();
+        mTextTimeNonSmokingPeriod = view.findViewById(R.id.text_count_cumulative_number_of_smoking);
+        String cumulativeNumberOfSmoking = mNumberOfSmokingOnDay * mTotalSmokingPeriod * 365 + getString(R.string.text_unit_number);
+        mTextTimeNonSmokingPeriod.setText(cumulativeNumberOfSmoking);
     }
 
     private void changeDisplayMessage(String message) {

@@ -28,7 +28,7 @@ public class InitialActivity extends AppCompatActivity {
     private final float MINIMUM_NUMBER_OF_NICOTINE = 0.1f;
     private final float MAXIMUM_NUMBER_OF_NICOTINE = 2.5f;
 
-    private int mNumberOfSmoking;
+    private int mNumberOfSmoking = 20;
     private int mNumberOfCigarettes = 20;
     private int mNumberOfTotalSmokingPeriod = 10;
     private float mNumberOfTar = 10.0f;
@@ -203,7 +203,7 @@ public class InitialActivity extends AppCompatActivity {
             } else {
                 mNumberOfTar = MINIMUM_NUMBER_OF_TAR;
             }
-            String tarWithUnit = mNumberOfTar + getString(R.string.text_mg);
+            String tarWithUnit = mNumberOfTar + getString(R.string.text_unit_mg);
             mTextNumberOfTar.setText(tarWithUnit);
         }
     };
@@ -218,7 +218,7 @@ public class InitialActivity extends AppCompatActivity {
             } else {
                 mNumberOfTar = MAXIMUM_NUMBER_OF_TAR;
             }
-            String tarWithUnit = mNumberOfTar + getString(R.string.text_mg);
+            String tarWithUnit = mNumberOfTar + getString(R.string.text_unit_mg);
             mTextNumberOfTar.setText(tarWithUnit);
         }
     };
@@ -231,7 +231,7 @@ public class InitialActivity extends AppCompatActivity {
             } else {
                 mNumberOfNicotine = MINIMUM_NUMBER_OF_NICOTINE;
             }
-            String tarWithUnit = String.format("%.1f", mNumberOfNicotine) + getString(R.string.text_mg);
+            String tarWithUnit = String.format("%.1f", mNumberOfNicotine) + getString(R.string.text_unit_mg);
             mTextNumberOfNicotine.setText(tarWithUnit);
         }
     };
@@ -244,7 +244,7 @@ public class InitialActivity extends AppCompatActivity {
             } else {
                 mNumberOfNicotine = MAXIMUM_NUMBER_OF_NICOTINE;
             }
-            String tarWithUnit = String.format("%.1f", mNumberOfNicotine) + getString(R.string.text_mg);
+            String tarWithUnit = String.format("%.1f", mNumberOfNicotine) + getString(R.string.text_unit_mg);
             mTextNumberOfNicotine.setText(tarWithUnit);
         }
     };
