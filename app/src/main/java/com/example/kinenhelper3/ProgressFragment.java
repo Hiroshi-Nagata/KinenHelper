@@ -1,6 +1,7 @@
 package com.example.kinenhelper3;
 
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import java.util.Timer;
+
+import android.os.Handler;
 
 import io.realm.Realm;
 import io.realm.RealmQuery;
@@ -31,8 +34,17 @@ public class ProgressFragment extends Fragment {
         setCumulativeNumberOfSmoking(view);
 
         TextView textView = view.findViewById(R.id.text_cheering_message);
-        Timer timer = new Timer();
-        timer.schedule(new TaskCheeringMessage(textView),0, 4000);
+
+
+        final Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                Timer timer = new Timer();
+                timer.schedule(new TaskCheeringMessage(textView), 0, 4000);
+            }
+        });
+
 
         return view;
     }
