@@ -1,7 +1,7 @@
 package com.example.kinenhelper3;
 
 import android.os.Bundle;
-import android.os.Looper;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +10,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import java.util.Timer;
-
-import android.os.Handler;
+import java.util.TimerTask;
 
 import io.realm.Realm;
 import io.realm.RealmQuery;
@@ -26,25 +25,35 @@ public class ProgressFragment extends Fragment {
     private int mNumberOfSmokingOnDay;
     private int mTotalSmokingPeriod;
     private TextView mTextTimeNonSmokingPeriod;
-
+    int count = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_progress, container, false);
         setCumulativeNumberOfSmoking(view);
 
-        TextView textView = view.findViewById(R.id.text_cheering_message);
+        final TextView textView = view.findViewById(R.id.text_cheering_message);
 
-
-        final Handler handler = new Handler();
-        handler.post(new Runnable() {
+        final String[] string = {"aaa", "bbb"};
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                Timer timer = new Timer();
-                timer.schedule(new TaskCheeringMessage(textView), 0, 4000);
-            }
-        });
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        textView.setText(string[count]);
+                    }
+                });
 
+                if (count == 0) {
+                    count = 1;
+                } else {
+                    count = 0;
+                }
+            }
+        };
+        timer.schedule(timerTask, 0, 500);
 
         return view;
     }
