@@ -19,10 +19,6 @@
     <string name="text_unit_mg">mg</string>
     <string name="text_unit_number">本</string>
     <string name="text_set_target">目標設定</string>
-    <string name="text_cheering_message1">一口だけ吸う愚か者</string>
-    <string name="text_cheering_message2">死ぬ気で、全力で、タバコのことを、考え抜け！</string>
-    <string name="text_cheering_message3">タバコを吸うメリットある？</string>
-    <string name="text_cheering_message4">あと一日、あと一日でいいんだ。がんばれ。</string>
     <string name="text_non_smoking_period">禁煙継続期間</string>
     <string name="text_save_money">節約できた金額</string>
     <string name="text_extend_life">伸びた寿命</string>
@@ -31,4 +27,39 @@
     <string name="text_cumulative_number_of_smoking">累積喫煙本数</string>
     <string name="text_lost_money">失った金額</string>
     <string name="text_lost_life">失った寿命</string>
+
+    <string-array name="text_cheering_messages">
+        <item>一口だけ吸う愚か者</item>
+        <item>死ぬ気で、全力で、タバコのことを、考え抜け！</item>
+        <item>タバコを吸うメリットある？</item>
+        <item>あと一日、あと一日でいいんだ。がんばれ。</item>
+        <item>禁煙は気持ちの持ち次第です。</item>
+        <item>どんな理由があろうとタバコは”百害あって一利なし”</item>
+        <item>あなたには死んでほしくないのです</item>
+        <item>家族はあなたの健康を心配しています</item>
+        <item>禁煙に必要なことは自分の意思だけです</item>
+        <item>あなたの体は、あなた一人のものですか？</item>
+        <item>自分の家族、周りが迷惑をしていると言い聞かせよう</item>
+        <item>禁煙すると手持ちぶさたになる。これをどう乗り切るか？</item>
+        <item>禁煙に踏み切るきっかけは、どんな事でも良い！</item>
+        <item>昔、自分がタバコを吸っていたと知ったら、君は何と言うだろう。</item>
+        <item>生まれた時は誰も吸わないのに、人は何故タバコを吸うのだろう。</item>
+        <item>いつからだろう、禁煙しようと思ったのは。</item>
+        <item>いつまでも健康でいるために</item>
+        <item>タバコを止めて痛感したのは、食事の美味しさでした。</item>
+        <item>禁煙は心に嵐が吹くようなもの</item>
+        <item>タバコと分かれて寂しいけれど、健康という新しいことに会える</item>
+        <item>何事も挑戦だ。</item>
+        <item>禁煙おめでとう！</item>
+        <item>タバコの臭さに愕然とする</item>
+        <item>タバコをやめた今は作業の進め方が根本的に変わった</item>
+        <item>集中力が落ちると心配していたが、全然そんなことない</item>
+        <item>今までに何百万円ドブに捨ててきたのか？</item>
+        <item>自分がタバコを吸う場面を予測し、予め回避しよう！</item>
+        <item>吸いたい渇望を乗り越える</item>
+        <item>今まてどうやって切り抜けて来たか思い出せ！</item>
+        <item>吸うことでは何も解決しないことを思い出せ！</item>
+        <item>何のために禁煙するのか思い出せ！</item>
+        <item>予め来るとわかっているパンチは、耐えることができる</item>
+    </string-array>
 </resources>

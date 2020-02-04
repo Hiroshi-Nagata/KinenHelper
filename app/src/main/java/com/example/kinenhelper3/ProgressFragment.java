@@ -1,7 +1,6 @@
 package com.example.kinenhelper3;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -25,16 +25,17 @@ public class ProgressFragment extends Fragment {
     private int mNumberOfSmokingOnDay;
     private int mTotalSmokingPeriod;
     private TextView mTextTimeNonSmokingPeriod;
-    int count = 0;
+    private TextView textCheeringMessage;
+    private String[] mArrayCheeringData;
+    private int index = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_progress, container, false);
         setCumulativeNumberOfSmoking(view);
 
-        final TextView textView = view.findViewById(R.id.text_cheering_message);
-
-        final String[] string = {"aaa", "bbb"};
+        textCheeringMessage = view.findViewById(R.id.text_cheering_message);
+        mArrayCheeringData = getResources().getStringArray(R.array.text_cheering_messages);
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
             @Override
@@ -42,18 +43,13 @@ public class ProgressFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        textView.setText(string[count]);
+                        index = new Random().nextInt(mArrayCheeringData.length);
+                        textCheeringMessage.setText(mArrayCheeringData[index]);
                     }
                 });
-
-                if (count == 0) {
-                    count = 1;
-                } else {
-                    count = 0;
-                }
             }
         };
-        timer.schedule(timerTask, 0, 500);
+        timer.schedule(timerTask, 0, 4000);
 
         return view;
     }
@@ -73,12 +69,4 @@ public class ProgressFragment extends Fragment {
         String cumulativeNumberOfSmoking = mNumberOfSmokingOnDay * mTotalSmokingPeriod * 365 + getString(R.string.text_unit_number);
         mTextTimeNonSmokingPeriod.setText(cumulativeNumberOfSmoking);
     }
-
-//    private void changeCheeringMessage() {
-//
-//        Timer timer = new Timer();
-//        timer.schedule(new TaskCheeringMessage(),0, 4000);
-//
-//    }
-
 }
