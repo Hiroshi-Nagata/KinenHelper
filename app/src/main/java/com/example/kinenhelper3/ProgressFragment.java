@@ -2,6 +2,7 @@ package com.example.kinenhelper3;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Selection;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
@@ -38,7 +38,7 @@ public class ProgressFragment extends Fragment {
     private TextView textCheeringMessage;
     private String[] mArrayCheeringData;
     private int mIndex;
-//    private PieChart mPieChart;
+    private PieChart mPieChart;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,6 +62,9 @@ public class ProgressFragment extends Fragment {
             }
         };
         timer.schedule(timerTask, 0, 4000);
+
+        String [] list = {"aaa", "bbb", "ccc", "ddd"};
+
 
         return view;
     }
@@ -90,7 +93,7 @@ public class ProgressFragment extends Fragment {
     }
 
     private void createPieChart() {
-        PieChart mPieChart = getView().findViewById(R.id.chart_progress);
+        mPieChart = getView().findViewById(R.id.chart_progress);
 
         mPieChart.setDrawHoleEnabled(true); // 真ん中に穴を空けるかどうか
         mPieChart.setHoleRadius(50f);       // 真ん中の穴の大きさ(%指定)
@@ -119,7 +122,7 @@ public class ProgressFragment extends Fragment {
 
         yVals.add(new Entry(20, 0));
         yVals.add(new Entry(30, 1));
-        yVals.add(new Entry(50, 2));
+//        yVals.add(new Entry(50, 2));
 
         PieDataSet dataSet = new PieDataSet(yVals, "Data");
         dataSet.setSliceSpace(5f);
