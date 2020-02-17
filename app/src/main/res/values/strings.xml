@@ -62,4 +62,20 @@
         <item>何のために禁煙するのか思い出せ！</item>
         <item>予め来るとわかっているパンチは、耐えることができる</item>
     </string-array>
+
+    <string-array name="list_goal_setting">
+        <item>1日</item>
+        <item>2日</item>
+        <item>3日</item>
+        <item>4日</item>
+        <item>5日</item>
+        <item>6日</item>
+        <item>1週間</item>
+        <item>10日</item>
+        <item>2週間</item>
+        <item>1ヶ月</item>
+        <item>3ヶ月</item>
+        <item>半年</item>
+        <item>1年</item>
+    </string-array>
 </resources>

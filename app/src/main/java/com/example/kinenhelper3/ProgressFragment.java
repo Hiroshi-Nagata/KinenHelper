@@ -6,6 +6,9 @@ import android.text.Selection;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -39,6 +42,8 @@ public class ProgressFragment extends Fragment {
     private String[] mArrayCheeringData;
     private int mIndex;
     private PieChart mPieChart;
+    private Spinner mSpinnerSettingGoal;
+    private int mPieChartValue;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,8 +68,22 @@ public class ProgressFragment extends Fragment {
         };
         timer.schedule(timerTask, 0, 4000);
 
-        String [] list = {"aaa", "bbb", "ccc", "ddd"};
+        mSpinnerSettingGoal = view.findViewById(R.id.spinner_goal_setting);
+        mSpinnerSettingGoal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                String text = (String) adapterView.getAdapter().getItem(position);
+                switch (text){
+                    case ("1日"):
+                        mPieChartValue = ;
+                }
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         return view;
     }
