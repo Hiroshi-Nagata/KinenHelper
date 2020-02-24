@@ -42,8 +42,12 @@ public class ProgressFragment extends Fragment {
     private String[] mArrayCheeringData;
     private int mIndex;
     private PieChart mPieChart;
+//    private TextView mTargetDays;
     private Spinner mSpinnerSettingGoal;
     private int mPieChartValue;
+    TextView textView;
+    LayoutInflater layoutInflater;
+    ViewGroup viewGroup;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -56,7 +60,6 @@ public class ProgressFragment extends Fragment {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -67,23 +70,6 @@ public class ProgressFragment extends Fragment {
             }
         };
         timer.schedule(timerTask, 0, 4000);
-
-        mSpinnerSettingGoal = view.findViewById(R.id.spinner_goal_setting);
-        mSpinnerSettingGoal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                String text = (String) adapterView.getAdapter().getItem(position);
-                switch (text){
-                    case ("1日"):
-                        mPieChartValue = ;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
 
         return view;
     }
@@ -162,4 +148,10 @@ public class ProgressFragment extends Fragment {
         data.setValueTextColor(Color.WHITE);
         return data;
     }
+
+    public void setTextSettingGoal(String value) {
+        textView = getView().findViewById(R.id.text_target_days);
+        textView.setText(value);
+    }
+
 }

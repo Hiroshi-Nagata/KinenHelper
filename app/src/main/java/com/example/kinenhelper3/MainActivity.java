@@ -1,9 +1,11 @@
 package com.example.kinenhelper3;
 
+import android.content.ClipData;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private FragmentPagerAdapter fragmentPagerAdapter;
     private Toolbar toolbar;
+    private String mDialogTag = "dialog";
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -63,16 +66,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item1:
-                return true;
+                CustomDialogFragment customDialogFragment = new CustomDialogFragment();
+                customDialogFragment.show(getSupportFragmentManager(), mDialogTag);
+                break;
             case R.id.item2:
-                return true;
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
-
-//    private int getInitialDate() {
-//        InitialData initialData = new InitialData();
-//
-//        initialData.getSmokingNum();
-//    }
 }

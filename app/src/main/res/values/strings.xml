@@ -3,7 +3,7 @@
     <string name="title_progress_fragment">達成状況</string>
     <string name="title_graph_fragment">禁煙グラフ</string>
     <string name="title_counter_fragment">喫煙カウンター</string>
-    <string name="menu_item1">item1</string>
+    <string name="menu_item1">目標設定</string>
     <string name="menu_item2">item2</string>
     <string name="text_message">あなたの決断を応援します！\nさぁ、一緒に禁煙しましょう！</string>
     <string name="text_time_stop_smoking">タバコを止めた日時</string>
@@ -27,6 +27,7 @@
     <string name="text_cumulative_number_of_smoking">累積喫煙本数</string>
     <string name="text_lost_money">失った金額</string>
     <string name="text_lost_life">失った寿命</string>
+    <string name="text_dialog_title">目標設定</string>
 
     <string-array name="text_cheering_messages">
         <item>一口だけ吸う愚か者</item>
