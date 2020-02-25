@@ -10,6 +10,13 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 public class CustomDialogFragment extends DialogFragment {
+
+    private CustomDialogListener customDialogListener;
+
+    interface CustomDialogListener {
+        void onSuccess(String value);
+    }
+    
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
         final String[] items = getResources().getStringArray(R.array.list_goal_setting);
@@ -18,10 +25,15 @@ public class CustomDialogFragment extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 String selectedValue = items[i];
-                ProgressFragment progressFragment = new ProgressFragment();
-                progressFragment.setTextSettingGoal(selectedValue);
+                if (customDialogListener != null) {
+                    customDialogListener.onSuccess(selectedValue);
+                }
             }
         });
         return dialogBuilder.create();
+    }
+
+    public void setCustomDialogListener(CustomDialogListener customDialogListener) {
+        this.customDialogListener = customDialogListener;
     }
 }
