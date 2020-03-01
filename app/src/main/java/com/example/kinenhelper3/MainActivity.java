@@ -8,25 +8,20 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CustomDialogInterface {
 
     private ViewPager viewPager;
     private FragmentPagerAdapter fragmentPagerAdapter;
     private Toolbar toolbar;
     private String mTAGDialogTag = "dialog";
-    private String mTAGProgressFragment = "progressFragment";
-    private Fragment mProgressFragment;
 
     @Override
-    protected void onCreate (Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -58,24 +53,8 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
 
-        if (savedInstanceState == null) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.fragment_progress, new ProgressFragment(), mTAGProgressFragment);
-            fragmentTransaction.commit();
-        }
-
         CustomDialogFragment customDialogFragment = new CustomDialogFragment();
-        customDialogFragment.setCustomDialogListener(new CustomDialogFragment.CustomDialogListener() {
-            @Override
-            public void onSuccess(String value) {
-                mProgressFragment = getSupportFragmentManager().findFragmentByTag(mTAGProgressFragment);
-                if (mProgressFragment != null) {
-                    TextView textView = findViewById(R.id.text_target_days);
-                    textView.setText(value);
-                }
-            }
-        });
+        customDialogFragment.setCustomDialogListener(this);
     }
 
     @Override
@@ -96,5 +75,11 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onSuccess(String value) {
+        TextView textView = findViewById(R.id.text_target_days);
+        textView.setText(value);
     }
 }

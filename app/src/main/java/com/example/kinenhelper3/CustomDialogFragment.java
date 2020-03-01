@@ -4,19 +4,14 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
 public class CustomDialogFragment extends DialogFragment {
 
-    private CustomDialogListener customDialogListener;
+    private CustomDialogInterface customDialogListener;
 
-    interface CustomDialogListener {
-        void onSuccess(String value);
-    }
-    
+    @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
         final String[] items = getResources().getStringArray(R.array.list_goal_setting);
@@ -33,7 +28,7 @@ public class CustomDialogFragment extends DialogFragment {
         return dialogBuilder.create();
     }
 
-    public void setCustomDialogListener(CustomDialogListener customDialogListener) {
+    public void setCustomDialogListener(CustomDialogInterface customDialogListener) {
         this.customDialogListener = customDialogListener;
     }
 }
