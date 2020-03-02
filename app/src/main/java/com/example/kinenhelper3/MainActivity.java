@@ -52,9 +52,6 @@ public class MainActivity extends AppCompatActivity implements CustomDialogInter
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
-
-        CustomDialogFragment customDialogFragment = new CustomDialogFragment();
-        customDialogFragment.setCustomDialogListener(this);
     }
 
     @Override
@@ -70,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements CustomDialogInter
             case R.id.item1:
                 CustomDialogFragment customDialogFragment = new CustomDialogFragment();
                 customDialogFragment.show(getSupportFragmentManager(), mTAGDialogTag);
+                customDialogFragment.setCustomDialogListener(this);
                 break;
             case R.id.item2:
                 break;
