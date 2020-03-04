@@ -22,7 +22,6 @@ public class DialogCalenderFragment extends DialogFragment {
                 new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-
                 String date = year + "年" + (month + 1) + "月" + dayOfMonth + "日";
                 DialogTimeFragment dialogTimeFragment = new DialogTimeFragment(date);
                 dialogTimeFragment.show(getFragmentManager(),mTAGTime);

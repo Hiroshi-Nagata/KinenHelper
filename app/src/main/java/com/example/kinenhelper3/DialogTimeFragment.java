@@ -11,9 +11,9 @@ import java.util.Calendar;
 
 public class DialogTimeFragment extends DialogFragment {
 
-    private String date;
+    private String mDate;
     DialogTimeFragment(String calenderDate) {
-        date = calenderDate;
+        mDate = calenderDate;
     }
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class DialogTimeFragment extends DialogFragment {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hour, int minutes) {
                         String time = hour + "時" + minutes + "分";
-                        String dateTime = date + " " + time;
+                        String dateTime = mDate + " " + time;
 
                         InitialActivity initialActivity = (InitialActivity) getActivity();
                         initialActivity.setTextOnButton(dateTime);

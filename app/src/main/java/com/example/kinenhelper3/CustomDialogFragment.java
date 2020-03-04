@@ -10,6 +10,7 @@ import androidx.fragment.app.DialogFragment;
 public class CustomDialogFragment extends DialogFragment {
 
     private CustomDialogInterface customDialogListener;
+    private String mSelectedValue;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -19,9 +20,9 @@ public class CustomDialogFragment extends DialogFragment {
         dialogBuilder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                String selectedValue = items[i];
+                mSelectedValue = items[i];
                 if (customDialogListener != null) {
-                    customDialogListener.onSuccess(selectedValue);
+                    customDialogListener.onSuccess(mSelectedValue);
                 }
             }
         });

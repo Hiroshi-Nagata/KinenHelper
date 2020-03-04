@@ -2,18 +2,13 @@ package com.example.kinenhelper3;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Selection;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
@@ -31,7 +26,7 @@ import io.realm.Realm;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
-public class ProgressFragment extends Fragment {
+public class ProgressFragment extends Fragment implements CustomDialogInterface{
     private Realm mRealm;
     private RealmQuery<InitialData> mRealmQuery;
     private RealmResults<InitialData> mRealmResults;
@@ -44,10 +39,9 @@ public class ProgressFragment extends Fragment {
     private String[] mArrayCheeringData;
     private int mIndex;
     private PieChart mPieChart;
-//    private TextView mTargetDays;
     private Spinner mSpinnerSettingGoal;
     private int mPieChartValue;
-    TextView textView;
+    public int mTargetDays;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -71,6 +65,9 @@ public class ProgressFragment extends Fragment {
         };
         timer.schedule(timerTask, 0, 4000);
 
+        CustomDialogFragment customDialogFragment = new CustomDialogFragment();
+        customDialogFragment.setCustomDialogListener(this);
+
         return view;
     }
 
@@ -80,6 +77,30 @@ public class ProgressFragment extends Fragment {
         createPieChart();
     }
 
+    @Override
+    public void onSuccess(String value) {
+        setTargetDays(value);
+    }
+
+    private void setTargetDays(String value) {
+        switch (value) {
+            case "1日":
+                mTargetDays = 100;
+                getTargetDays(mTargetDays);
+                break;
+            case "2日":
+                mTargetDays = 200;
+                getTargetDays(mTargetDays);
+                break;
+            default:
+                mTargetDays = 300;
+                getTargetDays(mTargetDays);
+        }
+    }
+
+    private void getTargetDays(int period) {
+        this.mTargetDays = period;
+    }
 
     private void setRealm() {
         mRealm = Realm.getDefaultInstance();
@@ -125,7 +146,7 @@ public class ProgressFragment extends Fragment {
         xVals.add("B");
         xVals.add("C");
 
-        yVals.add(new Entry(20, 0));
+        yVals.add(new Entry(mTargetDays, 0));
         yVals.add(new Entry(30, 1));
 //        yVals.add(new Entry(50, 2));
 
@@ -148,10 +169,4 @@ public class ProgressFragment extends Fragment {
         data.setValueTextColor(Color.WHITE);
         return data;
     }
-
-    public void setTextSettingGoal(String value) {
-        textView = getView().findViewById(R.id.text_target_days);
-        textView.setText(value);
-    }
-
 }
