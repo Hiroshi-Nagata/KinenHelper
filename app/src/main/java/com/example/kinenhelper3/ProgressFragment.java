@@ -2,6 +2,7 @@ package com.example.kinenhelper3;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.EventLogTags;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,8 +40,6 @@ public class ProgressFragment extends Fragment implements CustomDialogInterface{
     private String[] mArrayCheeringData;
     private int mIndex;
     private PieChart mPieChart;
-    private Spinner mSpinnerSettingGoal;
-    private int mPieChartValue;
     public int mTargetDays;
 
     @Override
@@ -128,8 +127,8 @@ public class ProgressFragment extends Fragment implements CustomDialogInterface{
         mPieChart.setRotationAngle(270);          // 開始位置の調整
         mPieChart.setRotationEnabled(true);       // 回転可能かどうか
         mPieChart.getLegend().setEnabled(true);   //
-        mPieChart.setDescription("PieChart 説明");
         mPieChart.setData(createPieChartData());
+        mPieChart.setDescription("");
 
         // 更新
         mPieChart.invalidate();
@@ -146,7 +145,7 @@ public class ProgressFragment extends Fragment implements CustomDialogInterface{
         xVals.add("B");
         xVals.add("C");
 
-        yVals.add(new Entry(mTargetDays, 0));
+        yVals.add(new Entry(20, 0));
         yVals.add(new Entry(30, 1));
 //        yVals.add(new Entry(50, 2));
 

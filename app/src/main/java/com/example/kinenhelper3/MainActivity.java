@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -79,5 +80,7 @@ public class MainActivity extends AppCompatActivity implements CustomDialogInter
     public void onSuccess(String value) {
         TextView textView = findViewById(R.id.text_target_days);
         textView.setText(value);
+        //ここで、ProgressFragmentのインスタンス取得し、値を代入する
+        //ProgressFragment内でCustomDialogFragmentのリスナーをセットする必要ないかも
     }
 }
